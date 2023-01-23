@@ -1,22 +1,17 @@
 import React from 'react';
 import { Link, Navigate, NavLink, Route, Routes } from 'react-router-dom';
-import TodoFeature from './features/TodoFeatures';
+import TodoFeature from './features/TodoFeature';
 // import logo from './logo.svg';
-import AlbumFeature from './features/Album';
-import RouteAndLink from './pages/RouteAndLink';
 
 function App() {
 
   return (
     <div className='App'>
-      <p><NavLink to='/todos'>Todo</NavLink></p>
-      <p><NavLink to='/albums'>Album</NavLink></p>
+      <p><NavLink to='/todo-feature'>Todo</NavLink></p>
       <Routes>
         
+        <Route path="/todo-feature" element={<TodoFeature/>}/>
 
-        <Route path="/" element={<div></div>} />
-        <Route path="/todos" element={<TodoFeature/>}/>
-        <Route path="/albums" element={<AlbumFeature/>}/>
       </Routes>
     </div>
   );

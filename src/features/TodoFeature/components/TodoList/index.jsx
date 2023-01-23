@@ -5,34 +5,32 @@ import './styles.scss'
 
 TodoList.propTypes = {
   todoList: PropTypes.array,
-  onTodoList: PropTypes.func,
+  transToggleCompleted: PropTypes.func,
 };
 
 TodoList.defaultProps = {
   todoList: [],
-  onTodoList: null,
+  transToggleCompleted: null,
 }
 
-
-function TodoList({todoList, onTodoList}) {
-  const handleTodoList = (todo, idx) => {
-    if(!onTodoList) return;
-    onTodoList(todo, idx);
+function TodoList({todoList, transToggleCompleted}) {
+  const toggleCompleted = (todo, idx) => {
+    if (!transToggleCompleted) return;
+    transToggleCompleted(todo, idx)
   }
   return (
     <ul className='todo-list'>
-      {todoList.map((todo, idx) => (
+      {todoList.map((todo, idx) => 
         <li 
           key={todo.id}
           className={classNames({
-            'todo-item': true,
             completed: todo.status === 'completed',
           })}
-          onClick={() => handleTodoList(todo, idx)}
+          onClick={() => {toggleCompleted(todo, idx)}}
         >
           {todo.title}
         </li>
-      ))}
+      )}
     </ul>
   );
 }

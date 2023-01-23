@@ -2,9 +2,9 @@
   & > li {
     cursor: pointer;
   }
-  & > li.completed{
-    font-style: italic;
-    color: #ccc;
+  & > li.completed {
     text-decoration: line-through;
+    color: #ccc;
+    font-style: italic;
   }
 }
